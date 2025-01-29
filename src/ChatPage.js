@@ -151,7 +151,6 @@ function ChatPage() {
             />
             {isBotTyping ? (
               <button onClick={stopBotTyping} className="stopButton">
-                <img src="/stop-btn.png" alt="Stop" className="stopIcon" />
               </button>
             ) : (
               <button onClick={handleSendMessage} className="sendButton">
