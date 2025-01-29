@@ -45,6 +45,8 @@ function ChatPage() {
     }
   };
 
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";  // Fallback to localhost for development
+
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
@@ -55,7 +57,7 @@ function ChatPage() {
     try {
       console.log("Sending API request...", { role, query: input });
 
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch(`${API_URL}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ role, query: input }),
